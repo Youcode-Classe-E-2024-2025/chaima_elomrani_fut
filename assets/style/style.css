@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+
+.addbtn{
+   
+    padding-left: 30px;
+    padding-right: 40px;
+    padding: 10px;
+    border-radius: 10px;
+
+}
