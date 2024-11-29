@@ -2,10 +2,14 @@
 // .then((response) => response.json())
 // .then((data)=> localStorage.setItem('players', JSON.stringify(data.players)))
 const players = JSON.parse(localStorage.getItem('players')) || [];
+console.log(players);
 
 
 
 // const cardContainer =document.getElementById('cardContainer');
+
+
+
 function showPlayers(players){
     return `
        <div id="image" class="w-full focus:border-[#6d28d9] ml-7 bg-contain bg-no-repeat bg-[url('${players.photo}')] h-[8rem] rounded-xl"></div>
@@ -14,7 +18,7 @@ function showPlayers(players){
                   <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">${players.name}</h1>
                 </div>
                 
-                <div  class="flex flex-col w-full gap-2">
+                <div  class="flex flex-col w-full">
                   <p class="text-sm text-[#d9d9d9]">Static</p>
                   <div id="buttons" class="flex w-full gap-2 flex-wrap">
 
