@@ -23,21 +23,23 @@
             <img src="/assets/images/logo.png" alt="logo" class="h-24  w-24 mt-10">
             <ul class="list-none w-full  flex flex-row gap-[40vh] text-white justify-center items-center z-10 cursor-pointer ">
             <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
-            <a href="./index.html" class="cursor-pointer">Home</a>
+            <a href="/index.html" class="cursor-pointer">Home</a>
           </ul>
           </div>
         </nav>
       </header>
+      
 
-        
+      
+
+         
   <!-- **************************************************** cards *********************************************************************** -->
-
-        <main class="min-h-screen  flex items-center relative" style="background-color: #000000;">
-          <div id="cardContainer" class="flex flex-wrap pl-10 gap-4 mt-40">
-                                
-         </div>
+        
+        <main class="min-h-screen flex-col flex items-center relative" style="background-color: #000000;">
+          <button  type="submit" id="firstaddplayerbtn" class="mt-16  mb-0">Add Player</button>
+          <div id="cardContainer" class=" justify-center items-center flex flex-wrap mr-[5%] gap-4 ">
            
-       
+          </div>
                 
          </main>
           
@@ -48,9 +50,237 @@
               </div>
           </section>
 
+<!-- ****************************form ajout *********************************** -->
+  <section>
+          <!-- Popup Container -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <!-- Card Section -->
+      <div id="container" class="flex-1 flex justify-center items-center">
+        
+         
 
+          <div id="card-photo" class="relative">
+            <img src="/assets/images/card.png" alt="Player">
 
+            <div class="h-[30%] w-[55%] absolute top-[18%] right-[11%]">
+            <img src="/assets/images/unkown.png" alt="unknonw player" >
+           </div>
+              
+            <div id="position" class="absolute top-[35%] right-[65%]">
+               RW
+            </div>
+
+            <div class="absolute top-[44%] right-[66%]">    
+             <img id="playerLogoCard" class="h-6" src="/assets/images//teamlogo.png " alt="">
+            </div>
+            
+              
+              <button id="flag" class="bg-[rgb(193,189,189)]  absolute w-[13%] top-[21%] right-[64%] px-1 rounded-lg ">
+                <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
+              </button>
           
+
+               <div class="card-name absolute top-[52%] right-[32%] text-lg">Player Name</div>
+           </div>
+
+          <div class="text-sm absolute top-[58%] right-[85%]">
+            <div class="flex gap-2">
+            <p>PAC</p>
+            <p>75</p>
+          </div>
+             
+          <div class="flex gap-2">
+            <p>SHO</p>
+            <p>65</p>
+          </div>
+            
+          <div class="flex gap-2">
+            <p>PAS</p>
+            <p>96</p>
+          </div>
+          </div>
+
+
+          <div class="text-sm absolute top-[58%] right-[75%]">
+            <div class="flex gap-2">
+            <p>DRI</p>
+            <p>75</p>
+          </div>
+             
+          <div class="flex gap-2">
+            <p>DEF</p>
+            <p>65</p>
+          </div>
+            
+          <div class="flex gap-2">
+            <p>PHY</p>
+            <p>96</p>
+          </div>
+          </div>
+
+        
+
+       
+      
+      </div>
+
+
+       <!-- Form Section -->
+       <div class="form-section">
+        <h2 class="text-orange-600 text-3xl mb-5 "><b>Add New Player</b></h2>
+        <div class="form-container">
+        <form id="playerForm">
+          
+          <div class="form-group">         
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter Player Name" pattern="^[A-Za-z\s]{2,50}$" 
+            title="Name should only contain letters and spaces, with a minimum of 2 characters and a maximum of 50." required >
+          </div>
+          <div class="form-group">         
+            <label for="image">image</label>
+            <input type="file" id="image" placeholder="Enter Player Image"  accept="image/*" required>
+          </div>
+          <!-- <div class="form-group">
+            <label for="photo">Photo</label>
+            <input type="text" id="photo" placeholder="Photo URL">
+          </div> -->
+
+          <div class="form-group">
+            <label for="nationality">Nationality</label>
+            <select name="nationality" id="nationality" required>
+              <option value="select">Select Nationality</option>
+              <option value="afghan">Afghan</option>
+              <option value="albanian">Albanais</option>
+              <option value="algerian">Algérien</option>
+              <option value="american">Américain</option>
+              <option value="angolan">Angolais</option>
+              <option value="argentine">Argentin</option>
+              <option value="armenian">Arménien</option>
+              <option value="australian">Australien</option>
+              <option value="austrian">Autrichien</option>
+              <option value="bangladeshi">Bangladais</option>
+              <option value="belgian">Belge</option>
+              <option value="brazilian">Brésilien</option>
+              <option value="british">Britannique</option>
+              <option value="canadian">Canadien</option>
+              <option value="chilean">Chilien</option>
+              <option value="chinese">Chinois</option>
+              <option value="colombian">Colombien</option>
+              <option value="croatian">Croate</option>
+              <option value="cuban">Cubain</option>
+              <option value="danish">Danois</option>
+              <option value="egyptian">Égyptien</option>
+              <option value="english">Anglais</option>
+              <option value="ethiopian">Éthiopien</option>
+              <option value="french">Français</option>
+              <option value="german">Allemand</option>
+              <option value="ghanaian">Ghanéen</option>
+              <option value="greek">Grec</option>
+              <option value="indian">Indien</option>
+              <option value="indonesian">Indonésien</option>
+              <option value="iranian">Iranien</option>
+              <option value="iraqi">Irakien</option>
+              <option value="irish">Irlandais</option>
+              <option value="italian">Italien</option>
+              <option value="ivorian">Ivoirien</option>
+              <option value="japanese">Japonais</option>
+              <option value="kenyan">Kenyan</option>
+              <option value="mexican">Mexicain</option>
+              <option value="moroccan">Marocain</option>
+              <option value="nigerian">Nigérian</option>
+              <option value="norwegian">Norvégien</option>
+              <option value="pakistani">Pakistanais</option>
+              <option value="peruvian">Péruvien</option>
+              <option value="polish">Polonais</option>
+              <option value="portuguese">Portugais</option>
+              <option value="romanian">Roumain</option>
+              <option value="russian">Russe</option>
+              <option value="saudi">Saoudien</option>
+              <option value="senegalese">Sénégalais</option>
+              <option value="south_african">Sud-Africain</option>
+              <option value="spanish">Espagnol</option>
+              <option value="swedish">Suédois</option>
+              <option value="swiss">Suisse</option>
+              <option value="thai">Thaïlandais</option>
+              <option value="tunisian">Tunisien</option>
+              <option value="turkish">Turc</option>
+              <option value="ukrainian">Ukrainien</option>
+              <option value="uruguayan">Uruguayen</option>
+              <option value="venezuelan">Vénézuélien</option>
+              <option value="vietnamese">Vietnamien</option>
+            </select>
+            
+          </div>
+
+          <div class="form-group">
+            <label for="position" required>Position</label>
+            <select id="position">
+              <option value="">Select a Position</option>
+              <option value="GK">Goalkeeper</option>
+              <option value="DEF">Defender</option>
+              <option value="MID">Midfielder</option>
+              <option value="FWD">Forward</option>
+            </select>
+
+          </div>
+     
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" id="rating" placeholder="Rating (1-99)"  min="1" max="99" required>
+          </div>
+          <p id="error-message" class="error">Please fill out all required fields.</p>
+
+          <div id="stats-container" class="flex gap-4">
+            <div  class="w-full flex flex-col items-end gap-2">
+              <div class="flex gap-2">
+                <label for="stats1Input">PAC</label>
+                <input id="stats1Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+              </div>
+              <div class="flex gap-2">
+                <label for="stats2Input">SHO</label>
+                <input id="stats2Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+              </div>
+              <div class="flex gap-2">
+                <label for="stats3Input">PAS</label>
+                <input id="stats3Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+              </div>
+      
+            </div>
+            <div class="w-full flex flex-col gap-2 ">
+              <div class="flex gap-2">
+                <label for="stats4Input">DRI</label>
+                <input id="stats4Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+              </div>
+              <div class="flex gap-2">
+                <label for="stats5Input">DEF</label>
+                <input id="stats5Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+              </div>
+              <div class="flex gap-2">
+                <label for="stats6Input">PHY</label>
+                <input id="stats6Input" class="w-12 text-center rounded-md" type="number" min="1" max="100" >
+              </div>
+            </div>                     
+          </div>
+         
+           
+
+
+
+
+          <button type="submit" id="addPlayer">Add Player</button>
+
+
+
+        </form>
+      </div>
+      </div>
+
+      <button class="close-popup" id="closePopup">&times;</button>
+    </div>
+  </div>
+</section>
+  
 
 
         
