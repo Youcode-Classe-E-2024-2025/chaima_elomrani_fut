@@ -18,7 +18,7 @@
 
 
 
-<style>
+ <style>
   .lw-modal{
     position: absolute;
     top: 0;
@@ -147,7 +147,7 @@
 }
 
 </style>
-
+ 
 
 
 
@@ -161,8 +161,8 @@
       <div class=" flex justify-between px-8 h-40 w-full" style="background-color: #000000;">
         <img src="/assets/images/logo.png" alt="logo" class="h-24  w-24 mt-10">
         <ul class="list-none w-full  flex flex-row gap-[40vh] text-white justify-center items-center z-10 cursor-pointer ">
-        <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
-        <a href="./index.html" class="cursor-pointer">Home</a>
+          <a href="./index.html" class="cursor-pointer">Home</a>
+          <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
       </ul>
       </div>
     </nav>
@@ -171,9 +171,8 @@
 
  
 
-  
+
   <main class="flex justify-center items-center min-h-screen">
-     
     <section id="popup" class="relative flex justify-center items-center w-full h-full" style="visibility: hidden;">
       <img src="/assets/images/terrain.png" alt="terrain"
         class="absolute inset-0 w-full h-full object-cover z-0 opacity-80">
@@ -183,9 +182,7 @@
           left: 330px;
       "></button>
 
-      <div id="cardContainer"
-        class="relative z-10 grid grid-cols-3 gap-4 p-6 bg-[#2f485c]/90 rounded-xl w-[700px] h-[60%]"
-        style="position: absolute; overflow-y: scroll; height: 33em; scrollbar-width: none;">
+      <div id="cardContainer" class="relative z-10 grid grid-cols-3 gap-4 p-6 bg-[#2f485c]/90 rounded-xl w-[700px] h-[60%]"style="position: absolute; overflow-y: scroll; height: 33em; scrollbar-width: none;">
         <!-- Player cards will be injected here -->
       </div>
     </section>
@@ -202,18 +199,9 @@
 
 
         <div id="LWcard"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[80%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="LW" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[80%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -224,8 +212,8 @@
                 <div id="rating" type="text"
                   class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
                 </div>
-                <div id="pace" type="text"
-                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                <div id="pace" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                 
                 </div>
                 <div id="shooting" type="text"
                   class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
@@ -246,7 +234,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -260,18 +248,9 @@
         <!-- *************************2**************** -->
 
         <div id="STcard"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[48%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl "></div>
-            <div id="ST" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[48%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl ">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -304,7 +283,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -319,18 +298,9 @@
         <!-- *************************3**************** -->
 
         <div id="RWcard"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[17%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div  id="RW" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[17%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -363,7 +333,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -379,18 +349,9 @@
 
 
          <div id="CMcard1"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[55%] right-[65%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="CM1" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[55%] right-[65%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -423,7 +384,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -435,18 +396,9 @@
 
         <!-- ******************************5********************************** -->
         <div id="CMcard2"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[72%] right-[48%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="CM2" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[68%] right-[48%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -479,7 +431,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -492,18 +444,9 @@
 
         <!-- **************************6****************************** -->
         <div id="CMcard3"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[55%] right-[31%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="CM3" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[55%] right-[31%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -536,7 +479,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -551,18 +494,9 @@
 
 
         <div id="CBcard1"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[100%] right-[32%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="CB1" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[100%] right-[32%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -595,7 +529,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -606,18 +540,9 @@
         
         <!-- *****************************8************************************* -->
         <div id="CBcard2"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[100%] right-[65%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="CB2" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[100%] right-[65%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -650,7 +575,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -661,17 +586,9 @@
 
         <!-- *******************************9********************************* -->
         <div id="LBcard"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[86%] right-[80%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="LB" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[86%] right-[80%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -704,7 +621,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -719,18 +636,9 @@
 
         <!-- *********************10********************************************** -->
         <div id="RBcard"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[86%] right-[18%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="RB" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[86%] right-[18%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -763,7 +671,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -775,19 +683,10 @@
 
         <!-- *************************GK************************** -->
 
-        <div id="cardGK"
-          class="w-32 h-[40%] text-center text-black rounded-full absolute top-[115%] right-[47%] opacity-80">
-          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-4 flex flex-col gap-3 h-full rounded-xl ">
-            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl"></div>
-            <div id="GK" class="absolute flex items-center justify-center inset-0 cursor-pointer top-[-28%] right-[-50%]">
-
-              <path
-                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-                stroke="currentColor" stroke-width="1.5"></path>
-              </svg>
-              </span>
-              <div class="absolute text-7xl font-bold">+</div>
-            </div>
+        <div id="GKcard"
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[115%] right-[47%] opacity-80">
+          <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
+            <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
               <h1 id="playerName" class="text-[#d9d9d9] text-lg font-semibold truncate">Player Name</h1>
             </div>
@@ -820,7 +719,7 @@
 
             </div>
             <div class="flex w-full justify-between ">
-              <p class="text-white" id="position">299$</p>
+              <p class="text-white" id="position">XXX</p>
               <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
@@ -847,14 +746,8 @@
 
 
 
-  </div>
-  </div>
-  </div>
-  </div>
-
 
   
-
 
 
 

@@ -100,7 +100,6 @@ function showAllPlayers() {
 window.deletePlayer = function(index) {
     players.splice(index, 1);
     localStorage.setItem('players', JSON.stringify(players));
-
     showAllPlayers();
 };
 
@@ -228,14 +227,16 @@ document.getElementById('updatePlayer').addEventListener('click', function(event
         nationality: document.getElementById('nationality').value,
 
     };
-
+    
     players[index] = playerData;
 
     localStorage.setItem('players', JSON.stringify(players));
 
     showAllPlayers();
-
+    
     popup.classList.remove("show");
+    
+    
 });
 
 function validatePlayerForm() {

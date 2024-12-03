@@ -1,6 +1,8 @@
 
 var players = JSON.parse(localStorage.getItem('players')) || [];
 
+
+
 const closebtn =document.getElementById('closebtn');
 
 
@@ -30,41 +32,43 @@ function createPlayerCard(player) {
   <div class="text-center">
     <h1 class="text-[#d9d9d9] text-sm font-semibold truncate">${player.name}</h1>
   </div>
-
-  <!-- Stats Section -->
-  <div class="flex flex-col items-center gap-2">
-    <p class="text-xs text-[#d9d9d9]">Stats</p>
-    <div class="flex gap-1 flex-wrap justify-center">
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.rating}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.diving : player.pace}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.handling : player.shooting}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.kicking : player.passing}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.reflexes : player.dribbling}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.speed : player.defending}
-      </div>
-      <div
-        class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-        ${player.position === "GK" ? player.positioning : player.physical}
-      </div>
-    </div>
-  </div>
+ <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
+                </div>
 
   <!-- Position and Flag -->
   <div class="flex justify-between items-center w-full">
@@ -99,29 +103,14 @@ showAllPlayers(players);
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const card1 = document.getElementById('card1');
-  const popup = document.getElementById('popup');
-
-  card1.addEventListener('click', () => {
-    popup.style.visibility = 'visible'; 
-    popup.style.opacity = '1'; 
-  });
-
- 
-});
 
 
 
-
-
-
-
-const gkButton = document.querySelector("#GK");
+// **********************************GK************************************
+const gkButton = document.querySelector("#GKcard");
 console.log(gkButton);
 
 gkButton.addEventListener("click", (e) => {
-  e.stopPropagation();
   console.log(gkButton.id);
 
   const finded = players.filter((plr) => plr.position === "GK");
@@ -162,16 +151,43 @@ gkButton.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+            <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
-          </div>
         </div>
         <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
@@ -189,16 +205,13 @@ gkButton.addEventListener("click", (e) => {
 
 // ******************************************RW******************************
 
-
-const RWbtn = document.querySelector("#RW");
+const RWbtn = document.querySelector("#RWcard");
 console.log(RWbtn);
-
 RWbtn.addEventListener("click", (e) => {
-  e.stopPropagation();
+  // e.stopPropagation();
   console.log(RWbtn.id) 
   
   const finded = players.filter((plr) => plr.position === "RW");
-
   
   let modal = document.querySelector(".gk-modal");
   if (!modal) {
@@ -206,10 +219,7 @@ RWbtn.addEventListener("click", (e) => {
     modal.className = "gk-modal";
     document.body.appendChild(modal);
   }
-
   modal.innerHTML = "";
-
-
   const closeButton = document.createElement("div");
   closeButton.className = "close-button";
   closeButton.innerHTML = "✖";
@@ -217,13 +227,11 @@ RWbtn.addEventListener("click", (e) => {
     modal.classList.add("hidden");
   });
   modal.appendChild(closeButton);
-
-
   finded.forEach((player) => {
     const card = document.createElement("div");
     card.className = "player-card";
     card.innerHTML = `
-      <div class="w-[12rem] bg-[#27272a] p-4 flex flex-col items-center justify-center gap-3 h-[18rem] rounded-xl">
+      <div class="popupCard w-[12rem] bg-[#27272a] p-4 flex flex-col items-center justify-center gap-3 h-[18rem] rounded-xl">
         <div
           class="w-full bg-contain bg-no-repeat h-[6rem] rounded-md"
           style="background-image: url('${player.photo}')">
@@ -234,34 +242,62 @@ RWbtn.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+            <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
+                <div class="flex w-full justify-between ">
+                    <p class="text-white" id="position">${player.position}</p>
+                    
+                   <img src="${player.flag}" alt="terrain" class="px-1 py-1 rounded-lg">
+   
+                </div>
           </div>
         </div>
-        <div class="flex justify-between items-center w-full">
-          <p class="text-white text-xs">${player.position}</p>
-          <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
-        </div>
-      </div>
+       
     `;
     modal.appendChild(card);
   });
-
   modal.classList.remove("hidden");
 });
-
  
 // *******************************ST*******************************
 
 
-const STbtn = document.querySelector("#ST");
+const STbtn = document.querySelector("#STcard");
 console.log(STbtn);
 
 STbtn.addEventListener("click", (e) => {
@@ -306,21 +342,49 @@ STbtn.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+           <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
-          </div>
         </div>
         <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
         </div>
+      </div>
       </div>
     `;
     modal.appendChild(card);
@@ -332,15 +396,15 @@ STbtn.addEventListener("click", (e) => {
  
 // *****************************LW****************************
 
-const LWcard = document.querySelector("#LW");
+const LWcard = document.querySelector("#LWcard");
 console.log(LWcard);
 
 LWcard.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(LWcard.id) 
 
-  const finded = players.filter((plr) => plr.position === "Lw");
-  console.log("hello"+finded);
+  const finded = players.filter((plr) => plr.position === "LW");
+  console.log(finded);
 
   
   let modal = document.querySelector(".gk-modal");
@@ -377,21 +441,40 @@ LWcard.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+           <div id="rating" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+            ${players.rating}
+           </div>
+                <div id="pace" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                ${player.position === "GK" ? player.diving : player.pace}
                 </div>
-              `
-              )
-              .join("")}
+                <div id="shooting" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                 ${player.position === "GK" ? player.handling : player.shooting}</span>
+                  </div>
+                <div id="passing" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.kicking : player.passing}
+                  </div>
+                <div id="dribbling" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.reflexes : player.dribbling}
+                  </div>
+                <div id="defending" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.speed : player.defending}
+                </div>
+                <div id="physical" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.positioning : player.physical}
+                  </div>
+              </div>
+          </div>
+          <div class="flex justify-between items-center w-full">
+            <p class="text-white text-xs">${player.position}</p>
+            <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
           </div>
         </div>
-        <div class="flex justify-between items-center w-full">
-          <p class="text-white text-xs">${player.position}</p>
-          <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
-        </div>
+    
       </div>
     `;
     modal.appendChild(card);
@@ -405,7 +488,7 @@ LWcard.addEventListener("click", (e) => {
 // **************************************** CM**************************************
 // °°°°°°°°1°°°°°°
 
-const CMbtn1 = document.querySelector("#CM1");
+const CMbtn1 = document.querySelector("#CMcard1");
 console.log(CMbtn1);
 
 CMbtn1.addEventListener("click", (e) => {
@@ -450,21 +533,40 @@ CMbtn1.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+             <div id="rating" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+            ${players.rating}
+           </div>
+                <div id="pace" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                ${player.position === "GK" ? player.diving : player.pace}
                 </div>
-              `
-              )
-              .join("")}
+                <div id="shooting" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                 ${player.position === "GK" ? player.handling : player.shooting}</span>
+                  </div>
+                <div id="passing" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.kicking : player.passing}
+                  </div>
+                <div id="dribbling" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.reflexes : player.dribbling}
+                  </div>
+                <div id="defending" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.speed : player.defending}
+                </div>
+                <div id="physical" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.positioning : player.physical}
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="flex justify-between items-center w-full">
+           <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
         </div>
+        </div>
+       
       </div>
     `;
     modal.appendChild(card);
@@ -475,7 +577,7 @@ CMbtn1.addEventListener("click", (e) => {
 
 
 // °°°°°°°°°2°°°°°°°
-const CMbtn2 = document.querySelector("#CM2");
+const CMbtn2 = document.querySelector("#CMcard2");
 console.log(CMbtn2);
 
 CMbtn2.addEventListener("click", (e) => {
@@ -520,21 +622,40 @@ CMbtn2.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+           <div id="rating" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+            ${players.rating}
+           </div>
+                <div id="pace" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                ${player.position === "GK" ? player.diving : player.pace}
                 </div>
-              `
-              )
-              .join("")}
+                <div id="shooting" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                 ${player.position === "GK" ? player.handling : player.shooting}</span>
+                  </div>
+                <div id="passing" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.kicking : player.passing}
+                  </div>
+                <div id="dribbling" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.reflexes : player.dribbling}
+                  </div>
+                <div id="defending" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.speed : player.defending}
+                </div>
+                <div id="physical" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.positioning : player.physical}
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="flex justify-between items-center w-full">
+           <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
         </div>
+        </div>
+       
       </div>
     `;
     modal.appendChild(card);
@@ -547,7 +668,7 @@ CMbtn2.addEventListener("click", (e) => {
 
 
 // °°°°°°°°°2°°°°°°°
-const CMbtn3 = document.querySelector("#CM3");
+const CMbtn3 = document.querySelector("#CMcard3");
 console.log(CMbtn3);
 
 CMbtn3.addEventListener("click", (e) => {
@@ -592,21 +713,40 @@ CMbtn3.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+             <div id="rating" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+            ${players.rating}
+           </div>
+                <div id="pace" type="text" class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                ${player.position === "GK" ? player.diving : player.pace}
                 </div>
-              `
-              )
-              .join("")}
+                <div id="shooting" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                 ${player.position === "GK" ? player.handling : player.shooting}</span>
+                  </div>
+                <div id="passing" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.kicking : player.passing}
+                  </div>
+                <div id="dribbling" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.reflexes : player.dribbling}
+                  </div>
+                <div id="defending" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.speed : player.defending}
+                </div>
+                <div id="physical" type="text"
+                  class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                  ${player.position === "GK" ? player.positioning : player.physical}
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="flex justify-between items-center w-full">
+            <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
         </div>
+        </div>
+      
       </div>
     `;
     modal.appendChild(card);
@@ -622,7 +762,7 @@ CMbtn3.addEventListener("click", (e) => {
 
 // ****************************************LB****************************************
 
-const LBcard = document.querySelector("#LB");
+const LBcard = document.querySelector("#LBcard");
 console.log(LBcard);
 
 LBcard.addEventListener("click", (e) => {
@@ -656,7 +796,7 @@ LBcard.addEventListener("click", (e) => {
     const card = document.createElement("div");
     card.className = "player-card";
     card.innerHTML = `
-      <div class="w-[12rem] bg-[#27272a] p-4 flex flex-col items-center justify-center gap-3 h-[18rem] rounded-xl">
+      <div class="w-[12rem] bg-[#27272a] p-4 flex flex-col items-center relative justify-center gap-3 h-[18rem] rounded-xl">
         <div
           class="w-full bg-contain bg-no-repeat h-[6rem] rounded-md"
           style="background-image: url('${player.photo}')">
@@ -667,17 +807,43 @@ LBcard.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+                    <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
-          </div>
-        </div>
         <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
@@ -694,7 +860,7 @@ LBcard.addEventListener("click", (e) => {
 
 // ***********************CB**********************************************************
 
-const CBcard1 = document.querySelector("#CB1");
+const CBcard1 = document.querySelector("#CBcard1");
 console.log(LBcard);
 
 CBcard1.addEventListener("click", (e) => {
@@ -739,16 +905,43 @@ CBcard1.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+            <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
-          </div>
         </div>
         <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
@@ -763,7 +956,7 @@ CBcard1.addEventListener("click", (e) => {
 });
 
 
-const CBcard2 = document.querySelector("#CB2");
+const CBcard2 = document.querySelector("#CBcard2");
 console.log(LBcard);
 
 CBcard2.addEventListener("click", (e) => {
@@ -808,16 +1001,44 @@ CBcard2.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+             <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
-          </div>
+          
         </div>
         <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
@@ -835,7 +1056,7 @@ CBcard2.addEventListener("click", (e) => {
 
 // **************************RB**********************************************************
 
-const RBcard = document.querySelector("#RB");
+const RBcard = document.querySelector("#RBcard");
 console.log(RBcard);
 
 RBcard.addEventListener("click", (e) => {
@@ -880,21 +1101,50 @@ RBcard.addEventListener("click", (e) => {
         <div class="flex flex-col items-center gap-2">
           <p class="text-xs text-[#d9d9d9]">Stats</p>
           <div class="flex gap-1 flex-wrap justify-center">
-            ${["rating", "diving", "handling", "kicking", "reflexes", "speed", "positioning"]
-              .map(
-                (stat) => `
-                <div class="w-[1.8rem] h-[1.8rem] bg-[#18181b] text-[#d9d9d9] text-xs text-center flex items-center justify-center rounded-md border border-[#18181b]">
-                  ${player[stat]}
+           <div id="rating"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.rating}
+                    </div>
+                    <div id="pace"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.diving : player.pace}
+                      </div>
+                    <div id="shooting"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.handling : player.shooting}
+                      </div>
+                    <div id="passing"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.kicking : player.passing}
+                      </div>
+                    <div id="dribbling"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                      ${player.position === "GK" ? player.reflexes : player.dribbling}
+                      </div>
+                    <div id="defending"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                        ${player.position === "GK" ? player.speed : player.defending}
+                      </div>
+                    <div id="physical"
+                      type="text"
+                      class="w-[2rem] h-[2rem] bg-[#18181b] text-[#d9d9d9] text-center rounded-md border border-[#18181b] focus:border-[#6d28d9] focus:outline-none">
+                       ${player.position === "GK" ? player.positioning : player.physical}
+                      </div>
+    
                 </div>
-              `
-              )
-              .join("")}
           </div>
-        </div>
-        <div class="flex justify-between items-center w-full">
+          <div class="flex justify-between items-center w-full">
           <p class="text-white text-xs">${player.position}</p>
           <img src="${player.flag}" alt="${player.name} flag" class="w-6 h-4 rounded-md">
         </div>
+        </div>
+        
       </div>
     `;
     modal.appendChild(card);
@@ -906,35 +1156,3 @@ RBcard.addEventListener("click", (e) => {
 
 
 
-
-
-
-
-
-
-document.getElementById("LW").addEventListener("click", () => {
-  document.querySelector(".popup-form-container").classList.remove("hidden");
-});
-
-document.querySelector(".popup-form-container").addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) {
-    e.currentTarget.classList.add("hidden");
-  }
-});
-
-document.getElementById("addPlayerForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const newPlayer = {
-    name: document.getElementById("playerName").value,
-    position: document.getElementById("playerPosition").value,
-    photo: document.getElementById("playerPhoto").value,
-    nationality: document.getElementById("playerNationality").value,
-    club: document.getElementById("playerClub").value,
-    flag: document.getElementById("playerFlag").value,
-    rating: document.getElementById("playerRating").value,
-  };
-
-  console.log("New Player Added:", newPlayer);
-  document.querySelector(".popup-form-container").classList.add("hidden");
-});

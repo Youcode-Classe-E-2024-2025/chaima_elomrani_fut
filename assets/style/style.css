@@ -329,3 +329,17 @@
     background: black; 
   }
 
+  .selected-placeholder{
+    scale: 1.1;
+    box-shadow: 0 0 10px white;
+  }
+
+
+
+  #updatePlayer{
+    background-color: #007bff;
+    padding-left: 30px;
+    padding-right: 40px;
+    padding: 10px;
+    border-radius: 5px;
+  }
