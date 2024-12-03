@@ -1,7 +1,11 @@
-fetch('../script/data.json')
-.then((response) => response.json())
-.then((data)=> localStorage.setItem('players', JSON.stringify(data.players)))
-console.log('the players:',players)
+// fetch('../script/data.json')
+// .then((response) => response.json())
+// .then((data)=> localStorage.setItem('players', JSON.stringify(data.players)))
+// console.log('the players:',players)
+import { data } from "./data.js";
+let players =JSON.parse(localStorage.getItem('players'))|| data.players;
+localStorage.setItem('players', JSON.stringify(players))
+console.log(players);
 
 
 

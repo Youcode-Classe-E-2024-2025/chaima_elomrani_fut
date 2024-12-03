@@ -24,7 +24,7 @@ function showPlayers(player, index) {
       </div>
 
       <!-- Position -->
-      <div id="position" class="absolute top-[35%] left-[29%] text-white text-sm font-bold">
+      <div id="showplayerposition" class="absolute top-[35%] left-[29%] text-white text-sm font-bold">
         ${player.position}
       </div>
 
@@ -110,6 +110,7 @@ const closePopup = document.getElementById("closePopup");
 const firstaddplayerbtn = document.getElementById('firstaddplayerbtn');
 
 firstaddplayerbtn.addEventListener("click", () => {
+  videInput();
     document.getElementById('addPlayer').style.display = 'block';
     document.getElementById('updatePlayer').style.display = 'none';
 
@@ -165,7 +166,7 @@ function ajoutplayer(e) {
         photo: image ? URL.createObjectURL(image) : "/assets/images/default-player.png",
         flag: `/assets/flags/${nationality.toLowerCase()}.png`,
         logo: `/assets/logos/default-logo.png`,
-        position,
+        position: position,
         pace: stats.pace,
         shooting: stats.shooting,
         passing: stats.passing,
@@ -194,6 +195,7 @@ function ajoutplayer(e) {
 
 // Function to show the popup for updating a player
 window.showUpdateForm = function(playerIndex) {
+  document.querySelector('#updatePlayer').style.display='inline-block';
   isEditMode = true;
   index = playerIndex;
   const player = players[playerIndex];
@@ -208,6 +210,7 @@ window.showUpdateForm = function(playerIndex) {
   document.getElementById('stats6Input').value = player.physical || '';
 
   popup.classList.add('show');
+  
 };
 
 
@@ -235,9 +238,9 @@ document.getElementById('updatePlayer').addEventListener('click', function(event
     showAllPlayers();
     
     popup.classList.remove("show");
-    
-    
+   
 });
+
 
 function validatePlayerForm() {
   const name = document.getElementById("name").value;
@@ -265,4 +268,32 @@ function validatePlayerForm() {
 
   errorMessage.style.display = "none";
   return true;
+}
+
+
+function videInput(){
+  const name = document.getElementById("name");
+  const nationality = document.getElementById("nationality");
+  const position = document.getElementById("position");
+  const rating = document.getElementById('rating');
+
+  const stats = [
+      document.getElementById("stats1Input"),
+      document.getElementById("stats2Input"),
+      document.getElementById("stats3Input"),
+      document.getElementById("stats4Input"),
+      document.getElementById("stats5Input"),
+      document.getElementById("stats6Input"),
+  ];
+
+  name.value = "";
+  nationality.value = "";
+  position.value ="";
+  rating.value = "";
+  stats.forEach(element => {
+    element.value ="";
+  });
+
+
+
 }

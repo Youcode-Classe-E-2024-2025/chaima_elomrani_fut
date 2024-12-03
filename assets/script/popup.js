@@ -523,9 +523,7 @@ CMbtn1.addEventListener("click", (e) => {
     card.className = "player-card";
     card.innerHTML = `
       <div class="w-[12rem] bg-[#27272a] p-4 flex flex-col items-center justify-center gap-3 h-[18rem] rounded-xl">
-        <div
-          class="w-full bg-contain bg-no-repeat h-[6rem] rounded-md"
-          style="background-image: url('${player.photo}')">
+        <div class="w-full bg-contain bg-no-repeat  h-[6rem] rounded-md" style="background-image: url('${player.photo}')">
         </div>
         <div class="text-center">
           <h1 class="text-[#d9d9d9] text-sm font-semibold truncate">${player.name}</h1>
@@ -667,7 +665,7 @@ CMbtn2.addEventListener("click", (e) => {
 
 
 
-// °°°°°°°°°2°°°°°°°
+// °°°°°°°°°3°°°°°°°
 const CMbtn3 = document.querySelector("#CMcard3");
 console.log(CMbtn3);
 
