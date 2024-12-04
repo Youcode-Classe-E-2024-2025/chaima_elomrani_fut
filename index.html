@@ -13,8 +13,30 @@
   <link rel="icon" type="image/x-icon" href="/images/logo.png">
 </head>
 
-<body class=" bg-no-repeat m-0 p-0 font-primary w-full min-h-screen h-full text-white"
+<body class=" bg-no-repeat m-0 p-0 font-primary overflow-x-auto overflow-y-auto max-w-full max-h-full"
   style="background-color: #000000;">
+
+  <div id="landscape-message"
+        class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-90 text-white p-6 rounded-xl text-center text-lg z-50">
+        Please rotate your device to landscape mode for the best experience.
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const landscapeMessage = document.getElementById('landscape-message');
+
+                function checkOrientation() {
+                    if (window.innerHeight > window.innerWidth) {
+                        landscapeMessage.classList.remove('hidden');
+                    } else {
+                        landscapeMessage.classList.add('hidden');
+                    }
+                }
+                window.addEventListener('resize', checkOrientation);
+
+                checkOrientation();
+            });
+
+        </script>
+    </div>
 
 
 
@@ -182,7 +204,7 @@
           left: 330px;
       "></button>
 
-      <div id="cardContainer" class="relative z-10 grid grid-cols-3 gap-4 p-6 bg-[#2f485c]/90 rounded-xl w-[700px] h-[60%]"style="position: absolute; overflow-y: scroll; height: 33em; scrollbar-width: none;">
+      <div id="cardContainer" class="relative z-10 grid grid-cols-3 gap-4 p-6 bg-[#2f485c]/90 rounded-xl w-[700px] md:h-[35%] md: w-24 h-[60%] sm:h-[20%]"style="position: absolute; overflow-y: scroll; height: 33em; scrollbar-width: none;">
         <!-- Player cards will be injected here -->
       </div>
     </section>
@@ -199,7 +221,7 @@
 
 
         <div id="LWcard"
-          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[80%] opacity-80">
+          class="placeholder w-32 h-[40%] text-center text-black rounded-full absolute top-[25%] right-[80%] opacity-80 ">
           <div id="cardContainer" class="w-[12rem] bg-[#27272a] mt-16 p-2 flex flex-col gap-3 h-full rounded-xl ">
             <div id="image" class="w-full bg-[rgb(193,189,189)] h-[4rem] rounded-xl text-7xl">+</div>
             <div>
@@ -235,7 +257,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
 
@@ -284,7 +306,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
 
@@ -334,7 +356,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -385,7 +407,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -432,7 +454,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -480,7 +502,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -530,7 +552,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -576,7 +598,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -622,7 +644,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -672,7 +694,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>
@@ -720,7 +742,7 @@
             </div>
             <div class="flex w-full justify-between ">
               <p class="text-white" id="position">XXX</p>
-              <button id="flag" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
+              <button id="flaghomecards" class="bg-[rgb(193,189,189)] text-white px-[0.5rem] py-1 rounded-lg w-10 h-full">
                 <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
               </button>
             </div>

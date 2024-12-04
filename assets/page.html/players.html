@@ -1,236 +1,242 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../index.html">
-      <!-- <link rel="stylesheet" href="../style/output.css"> -->
-      <link rel="stylesheet" href="/assets/style/style.css">
-      <script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-      <title>Players</title>
-      <style>
-          #cardInput input{
-              width: 2rem;
-          }
-      </style>
-  </head>
-  <body class="m-0 p-0 w-full">
-      <!-- ************************navbar************************ -->
-      <header class="w-full h-20">
-        <nav class="flex w-full h-full items-center justify-between">
-          <div class=" flex justify-between px-8 h-40 w-full" style="background-color: #000000;">
-            <img src="/assets/images/logo.png" alt="logo" class="h-24  w-24 mt-10">
-            <ul class="list-none w-full  flex flex-row gap-[40vh] text-white justify-center items-center z-10 cursor-pointer ">
-            <a href="/index.html" class="cursor-pointer">Home</a>
-            <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
-          </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../index.html">
+  <!-- <link rel="stylesheet" href="../style/output.css"> -->
+  <link rel="stylesheet" href="/assets/style/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Players</title>
+  <style>
+    #cardInput input {
+      width: 2rem;
+    }
+  </style>
+</head>
+
+<body class="m-0 p-0 w-full">
+  <!-- ************************navbar************************ -->
+  <header class="w- h-20">
+    <nav class="">
+      <div class="" style="background-color: #000000;">
+        <div class="flex flex-row justify-between p-6">
+          <div class="flex flex-row gap-9">
+            <img src="/assets/images/logo.png" alt="logo" class="h-[70px] -mt-5">
+            <a href="/index.html" class=" text-white cursor-pointer">Home</a>
           </div>
-        </nav>
-      </header>
-      
+          <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
 
-      
 
-         
+
+
+
   <!-- **************************************************** cards *********************************************************************** -->
-        
-        <main class="min-h-screen flex-col flex items-center relative" style="background-color: #000000;">
-          <button  type="submit" id="firstaddplayerbtn" class="mt-16  mb-0">Add Player</button>
-          <div id="cardContainer" class=" justify-center items-center flex flex-wrap mr-[5%] gap-4 ">
-           
-          </div>
-                
-         </main>
-          
 
-          <section class="w-[50%] h-[40%] flex ">
-              <div class="self-center" style="width:100%; border: solid black 2px; border-radius: 10px; background-color: rgb(140, 135, 135); z-index:10;">
-               
-              </div>
-          </section>
+  <main class="min-h-screen flex-col flex items-center relative" style="background-color: #000000;">
+    <button type="submit" id="firstaddplayerbtn" class="mt-16  mb-0">Add Player</button>
+    <div id="cardContainer" class=" justify-center items-center flex flex-wrap mr-[5%] gap-4 ">
 
-<!-- ****************************form ajout *********************************** -->
+    </div>
+
+  </main>
+
+
+  <section class="w-[50%] h-[40%] flex ">
+    <div class="self-center"
+      style="width:100%; border: solid black 2px; border-radius: 10px; background-color: rgb(140, 135, 135); z-index:10;">
+
+    </div>
+  </section>
+
+  <!-- **************************** carte vide *********************************** -->
   <section>
-          
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <!-- Card Section -->
-      <div id="container" class="flex-1 flex justify-center items-center">
-        
-         
 
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <!-- Card Section -->
+        <div id="container" class="flex-1 flex justify-center items-center">
           <div id="card-photo" class="relative">
             <img src="/assets/images/card.png" alt="Player">
 
             <div class="h-[30%] w-[55%] absolute top-[18%] right-[11%]">
-            <img src="/assets/images/unkown.png" alt="unknonw player" >
-           </div>
-              
+              <img src="/assets/images/unkown.png" alt="unknonw player">
+            </div>
+
             <div id="RWtest" class="absolute top-[35%] right-[65%]">
-               RW
+              RW
             </div>
 
-            <div class="absolute top-[44%] right-[66%]">    
-             <img id="playerLogoCard" class="h-6" src="/assets/images//teamlogo.png " alt="">
+            <div class="absolute top-[44%] right-[66%]">
+              <img id="playerLogoCard" class="h-6" src="/assets/images//teamlogo.png " alt="">
             </div>
-            
-              
-              <button id="flag" class="bg-[rgb(193,189,189)]  absolute w-[13%] top-[21%] right-[64%] px-1 rounded-lg ">
-                <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
-              </button>
-          
 
-               <div class="card-name absolute top-[52%] right-[32%] text-lg">Player Name</div>
-           </div>
+
+            <button id="fakeflag" class="bg-[rgb(193,189,189)]  absolute w-[13%] top-[21%] right-[64%] px-1 rounded-lg ">
+              <img src="/assets/images/question-mark-icon-free-vector-removebg-preview.png" alt="">
+            </button>
+
+
+            <div class="card-name absolute top-[52%] right-[32%] text-lg">Player Name</div>
+          </div>
 
           <div class="text-sm absolute top-[58%] right-[85%]">
             <div class="flex gap-2">
-            <p>PAC</p>
-            <p>75</p>
-          </div>
-             
-          <div class="flex gap-2">
-            <p>SHO</p>
-            <p>65</p>
-          </div>
-            
-          <div class="flex gap-2">
-            <p>PAS</p>
-            <p>96</p>
-          </div>
+              <p>PAC</p>
+              <p>75</p>
+            </div>
+
+            <div class="flex gap-2">
+              <p>SHO</p>
+              <p>65</p>
+            </div>
+
+            <div class="flex gap-2">
+              <p>PAS</p>
+              <p>96</p>
+            </div>
           </div>
 
 
           <div class="text-sm absolute top-[58%] right-[75%]">
             <div class="flex gap-2">
-            <p>DRI</p>
-            <p>75</p>
-          </div>
-             
-          <div class="flex gap-2">
-            <p>DEF</p>
-            <p>65</p>
-          </div>
-            
-          <div class="flex gap-2">
-            <p>PHY</p>
-            <p>96</p>
-          </div>
+              <p>DRI</p>
+              <p>75</p>
+            </div>
+
+            <div class="flex gap-2">
+              <p>DEF</p>
+              <p>65</p>
+            </div>
+
+            <div class="flex gap-2">
+              <p>PHY</p>
+              <p>96</p>
+            </div>
           </div>
 
-        
-
-       
-      
-      </div>
+     </div>
 
 
-       <!-- Form Section -->
-       <div class="form-section">
-        <h2 class="text-orange-600 text-3xl mb-5 "><b>Add New Player</b></h2>
-        <div class="form-container">
-        <form id="playerForm">
-          
-          <div class="form-group">         
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter Player Name" pattern="^[A-Za-z\s]{2,50}$" 
-            title="Name should only contain letters and spaces, with a minimum of 2 characters and a maximum of 50." required >
-          </div>
-          <div class="form-group">         
-            <label for="image">image</label>
-            <input type="file" id="image" placeholder="Enter Player Image"  accept="image/*" required>
-          </div>
-          <!-- <div class="form-group">
+     
+        <!-- Form d'ajout des joueurs  -->
+        <div class="form-section">
+          <h2 class="text-orange-600 text-3xl mb-5 "><b>Add New Player</b></h2>
+          <div class="form-container">
+            <form id="playerForm">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter Player Name">
+                
+              </div>
+              <span class="error" id="nameError"></span>
+              <div class="form-group">
+                <label for="image">image</label>
+                <input type="url" id="image" placeholder="Enter Player Image" >
+                
+              </div>
+              <span class="error" id="imageError"></span>
+              <!-- <div class="form-group">
             <label for="photo">Photo</label>
             <input type="text" id="photo" placeholder="Photo URL">
           </div> -->
 
-          <div class="form-group">
-            <label for="nationality">
-              <p>Nationality</p> 
-               <input type="url" id="nationality" placeholder="url flag">
-            </label>
-            
+              <div class="form-group">
+                <label for="flag">
+                  <p>Flag</p>
+                  <input type="url" id="flag" placeholder="url flag">
+                </label>
+               
+              </div>
+              <span class="error" id="flagError"></span>
+              <div class="form-group">
+                <label for="position" required>Position</label>
+                <select id="position">
+                  <option value="">Select a Position</option>
+                  <option value="GK">GK</option>
+                  <option value="LW">LW</option>
+                  <option value="ST">ST</option>
+                  <option value="RW">RW</option>
+                  <option value="CM1">CM right </option>
+                  <option value="CM2">CM center</option>
+                  <option value="CM3">CM left</option>
+                  <option value="CB1">CB left</option>
+                  <option value="CB2">CB right</option>
+                  <option value="LB">LB</option>
+                  <option value="RB">RB</option>
+                </select>
+                
+
+              </div>
+              <span class="error" id="positionError"></span>
+
+              <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="number" id="rating" placeholder="Rating (1-99)" min="1" max="99" required>
+              </div>
+              <p id="error-message" class="error">Please fill out all required fields.</p>
+
+              <div id="stats-container" class="flex gap-4">
+                <div class="w-full flex flex-col items-end gap-2">
+                  <div class="flex gap-2">
+                    <label for="stats1Input">PAC</label>
+                    <input id="stats1Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+                  <div class="flex gap-2">
+                    <label for="stats2Input">SHO</label>
+                    <input id="stats2Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+                  <div class="flex gap-2">
+                    <label for="stats3Input">PAS</label>
+                    <input id="stats3Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+
+                </div>
+                <div class="w-full flex flex-col gap-2 ">
+                  <div class="flex gap-2">
+                    <label for="stats4Input">DRI</label>
+                    <input id="stats4Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+                  <div class="flex gap-2">
+                    <label for="stats5Input">DEF</label>
+                    <input id="stats5Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+                  <div class="flex gap-2">
+                    <label for="stats6Input">PHY</label>
+                    <input id="stats6Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              <button type="submit" id="addPlayer">Add Player</button>
+              <button type="submit" id="updatePlayer">update Player</button>
+
+
+            </form>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label for="position" required>Position</label>
-            <select id="position">
-              <option value="">Select a Position</option>
-              <option value="GK">GK</option>
-              <option value="LW">LW</option>
-              <option value="ST">ST</option>
-              <option value="RW">RW</option>
-              <option value="CM1">CM right </option>
-              <option value="CM2">CM center</option>
-              <option value="CM3">CM left</option>
-              <option value="CB1">CB left</option>
-              <option value="CB2">CB right</option>
-              <option value="LB">LB</option>
-              <option value="RB">RB</option>
-            </select>
-
-          </div>
-     
-          <div class="form-group">
-            <label for="rating">Rating</label>
-            <input type="number" id="rating" placeholder="Rating (1-99)"  min="1" max="99" required>
-          </div>
-          <p id="error-message" class="error">Please fill out all required fields.</p>
-
-          <div id="stats-container" class="flex gap-4">
-            <div  class="w-full flex flex-col items-end gap-2">
-              <div class="flex gap-2">
-                <label for="stats1Input">PAC</label>
-                <input id="stats1Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
-              </div>
-              <div class="flex gap-2">
-                <label for="stats2Input">SHO</label>
-                <input id="stats2Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
-              </div>
-              <div class="flex gap-2">
-                <label for="stats3Input">PAS</label>
-                <input id="stats3Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
-              </div>
-      
-            </div>
-            <div class="w-full flex flex-col gap-2 ">
-              <div class="flex gap-2">
-                <label for="stats4Input">DRI</label>
-                <input id="stats4Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
-              </div>
-              <div class="flex gap-2">
-                <label for="stats5Input">DEF</label>
-                <input id="stats5Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
-              </div>
-              <div class="flex gap-2">
-                <label for="stats6Input">PHY</label>
-                <input id="stats6Input" class="w-12 text-center rounded-md" type="number" min="1" max="100" >
-              </div>
-            </div>                     
-          </div>
-         
-           
-
-
-
-
-          <button type="submit" id="addPlayer">Add Player</button>
-          <button type="submit" id="updatePlayer">update Player</button>
-
-
-        </form>
+        <button class="close-popup" id="closePopup">&times;</button>
       </div>
-      </div>
-
-      <button class="close-popup" id="closePopup">&times;</button>
     </div>
-  </div>
-</section>
+  </section>
 
-      <script type="module" src="/assets/script/data.js"></script>
-      <script type="module" src="/assets/script/players.js"></script>
-      <script src="../script/main.js"></script>
-  </body>
-  </html>
+  <script type="module" src="/assets/script/data.js"></script>
+  <script type="module" src="/assets/script/players.js"></script>
+  <script src="../script/main.js"></script>
+</body>
+
+</html>

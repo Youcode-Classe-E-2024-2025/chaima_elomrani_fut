@@ -7,6 +7,8 @@ let isEditMode = false; // To track the index of the player being updated (if in
 
 
 function showPlayers(player, index) {
+  // console.log(player);
+  
     return `
     <div id="card-photo" class="relative w-[250px] h-[400px] bg-cover" style="background-image: url('/assets/images/card.png');">
      <div id="deleteButton" class="top-8 left-8 relative">
@@ -35,7 +37,7 @@ function showPlayers(player, index) {
 
       <!-- Flag -->
       <div class="absolute top-[26%] left-[29%]">
-        <button id="flag" class="w-6 h-4">
+        <button id="cardsflag" class="w-6 h-4">
           <img src="${player.flag}" alt="Flag" class="w-full h-full object-contain">
         </button>
       </div>
@@ -122,34 +124,26 @@ closePopup.addEventListener("click", () => {
     popup.classList.remove("show");
 });
 
-//  validation
-
-playerForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const position = document.getElementById("position").value;
-    const name = document.getElementById("name").value;
-
-    if (!position || !name) {
-        errorMessage.style.display = "block";
-    } else {
-        errorMessage.style.display = "none";
-        alert("Player added successfully!");
-        popup.classList.remove("show");
-    }
-});
-
 document.getElementById("addPlayer").addEventListener("click", ajoutplayer);
+
+
+
+
+
+
+// *************************fonction d'ajout des joueurs dans la page players **********************
+
 
 function ajoutplayer(e) {
     e.preventDefault();
-
-
+    
     // ajout de joueur
     const name = document.getElementById("name").value;
-    const image = document.getElementById("image").files[0];
-    const nationality = document.getElementById("nationality").value;
+    const image = document.getElementById("image").value;
+    const flag = document.getElementById("flag").value;
     const position = document.getElementById("position").value;
-
+    console.log(image);
+    
     const stats = {
         pace: document.getElementById("stats1Input").value,
         shooting: document.getElementById("stats2Input").value,
@@ -163,8 +157,8 @@ function ajoutplayer(e) {
     const player = {
         id: players.length + 1,
         name,
-        photo: image ? URL.createObjectURL(image) : "/assets/images/default-player.png",
-        flag: `/assets/flags/${nationality.toLowerCase()}.png`,
+        photo: image,
+        flag: flag,
         logo: `/assets/logos/default-logo.png`,
         position: position,
         pace: stats.pace,
@@ -182,14 +176,19 @@ function ajoutplayer(e) {
             positioning: stats.physical,
         }),
     };
+    if(validationForm (e)){
+      players.push(player);
+      localStorage.setItem("players", JSON.stringify(players));
+      showAllPlayers(players);
+      document.getElementById("playerForm").reset();
+      popup.classList.remove("show");
+    }
+    
 
-    players.push(player);
-    localStorage.setItem("players", JSON.stringify(players));
+    
 
 
-    showAllPlayers(players);
-    document.getElementById("playerForm").reset();
-    popup.classList.remove("show");
+   
 
 }
 
@@ -199,9 +198,15 @@ window.showUpdateForm = function(playerIndex) {
   isEditMode = true;
   index = playerIndex;
   const player = players[playerIndex];
-
+  console.log(player);
+  console.log( document.getElementById('flag'))
   document.getElementById('name').value = player.name;
   document.getElementById('position').value = player.position;
+  console.log(document.getElementById('position'));
+  document.getElementById("image").value = player.photo;
+  document.getElementById('rating').value = player.rating;
+  document.getElementById('flag').value = player.flag;
+  // document.getElementById('logo').value = player.logo;
   document.getElementById('stats1Input').value = player.pace || '';
   document.getElementById('stats2Input').value = player.shooting || '';
   document.getElementById('stats3Input').value = player.passing || '';
@@ -220,7 +225,10 @@ document.getElementById('updatePlayer').addEventListener('click', function(event
     const playerData = {
         name: document.getElementById('name').value,
         rating: document.getElementById('rating').value,
+        flag: document.getElementById('flag').value,
         position: document.getElementById('position').value,
+        // logo: document.getElementById('logo').value,
+        photo: document.getElementById("image").value,
         pace: document.getElementById('stats1Input').value,
         shooting: document.getElementById('stats2Input').value,
         passing: document.getElementById('stats3Input').value,
@@ -242,33 +250,6 @@ document.getElementById('updatePlayer').addEventListener('click', function(event
 });
 
 
-function validatePlayerForm() {
-  const name = document.getElementById("name").value;
-  const position = document.getElementById("position").value;
-  const stats = [
-      document.getElementById("stats1Input").value,
-      document.getElementById("stats2Input").value,
-      document.getElementById("stats3Input").value,
-      document.getElementById("stats4Input").value,
-      document.getElementById("stats5Input").value,
-      document.getElementById("stats6Input").value,
-  ];
-
-  if (!name || !position) {
-      errorMessage.innerText = "Veuillez remplir tous les champs obligatoires.";
-      errorMessage.style.display = "block";
-      return false;
-  }
-
-  if (stats.some(stat => isNaN(stat) || stat < 0 || stat > 99)) {
-      errorMessage.innerText = "Toutes les statistiques doivent être des nombres entre 0 et 99.";
-      errorMessage.style.display = "block";
-      return false;
-  }
-
-  errorMessage.style.display = "none";
-  return true;
-}
 
 
 function videInput(){
@@ -287,13 +268,66 @@ function videInput(){
   ];
 
   name.value = "";
-  nationality.value = "";
+  flag.value = "";
   position.value ="";
   rating.value = "";
   stats.forEach(element => {
     element.value ="";
   });
 
+ }
 
 
-}
+ function validationForm (e) {
+  e.preventDefault();
+  document.querySelectorAll('.error').forEach((erreur)=>{
+   erreur.style.display='block';
+  })
+   let valide= true;
+  // Regex patterns
+  const nameRegex = /^[a-zA-Z\s]{3,}$/; // Minimum 3 caractères alphabétiques
+  const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[a-z]{2,6}(\/[\w\-_.]*)*\/?$/i;
+
+  // Inputs
+  const name = document.getElementById('name');
+  const image = document.getElementById('image');
+  const flag = document.getElementById('flag');
+  const position = document.getElementById('position');
+
+  // Errors
+  const nameError = document.getElementById('nameError');
+  const imageError = document.getElementById('imageError');
+  const flagError = document.getElementById('flagError');
+  const positionError = document.getElementById('positionError');
+
+  // Validate Name
+  if (!nameRegex.test(name.value)) {
+    nameError.textContent = 'Le nom doit contenir au moins 3 lettres.';
+    valide=false;
+  } else {
+    nameError.textContent = '';
+    valide =true;
+  }
+
+  // Validate Image URL 1
+  if (!urlRegex.test(image.value)) {
+    imageError.textContent = "L'URL de l'image est invalide.";
+    valide=false;
+  } else {
+    imageError.textContent = '';
+    valide =true;
+  }
+
+  // Validate Image URL 2
+  if (!urlRegex.test(flag.value)) {
+    flagError.textContent = "L'URL de l'image est invalide.";
+    valide=false;
+  } else {
+    flagError.textContent = '';
+    valide =true;
+  }
+
+ 
+  return valide;
+
+ }
