@@ -8,8 +8,8 @@ let isEditMode = false; // To track the index of the player being updated (if in
 
 function showPlayers(player, index) {
   // console.log(player);
-  
-    return `
+
+  return `
     <div id="card-photo" class="relative w-[250px] h-[400px] bg-cover" style="background-image: url('/assets/images/card.png');">
      <div id="deleteButton" class="top-8 left-8 relative">
        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" viewBox="0 0 72 72"
@@ -84,25 +84,25 @@ showAllPlayers();
 
 
 function showAllPlayers() {
-    const cardContainer = document.getElementById('cardContainer');
+  const cardContainer = document.getElementById('cardContainer');
 
-    cardContainer.innerHTML = ``;
+  cardContainer.innerHTML = ``;
 
-    players.forEach((player, index) => {
-        const div = document.createElement('div');
-        div.classList = `w-[16rem] p-4 flex flex-col gap-3 h-full rounded-xl`;
-        div.innerHTML = showPlayers(player, index);
-        div.setAttribute('data-index', index);
-        cardContainer.appendChild(div);
+  players.forEach((player, index) => {
+    const div = document.createElement('div');
+    div.classList = `w-[16rem] p-4 flex flex-col gap-3 h-full rounded-xl`;
+    div.innerHTML = showPlayers(player, index);
+    div.setAttribute('data-index', index);
+    cardContainer.appendChild(div);
 
-        div.querySelector('#deleteButton').addEventListener('click', () => deletePlayer(index));
-    });
+    div.querySelector('#deleteButton').addEventListener('click', () => deletePlayer(index));
+  });
 }
 
-window.deletePlayer = function(index) {
-    players.splice(index, 1);
-    localStorage.setItem('players', JSON.stringify(players));
-    showAllPlayers();
+window.deletePlayer = function (index) {
+  players.splice(index, 1);
+  localStorage.setItem('players', JSON.stringify(players));
+  showAllPlayers();
 };
 
 // ****************form ajout ********************
@@ -113,15 +113,15 @@ const firstaddplayerbtn = document.getElementById('firstaddplayerbtn');
 
 firstaddplayerbtn.addEventListener("click", () => {
   videInput();
-    document.getElementById('addPlayer').style.display = 'block';
-    document.getElementById('updatePlayer').style.display = 'none';
+  document.getElementById('addPlayer').style.display = 'block';
+  document.getElementById('updatePlayer').style.display = 'none';
 
-    popup.classList.add("show");
+  popup.classList.add("show");
 
 });
 
 closePopup.addEventListener("click", () => {
-    popup.classList.remove("show");
+  popup.classList.remove("show");
 });
 
 document.getElementById("addPlayer").addEventListener("click", ajoutplayer);
@@ -135,71 +135,71 @@ document.getElementById("addPlayer").addEventListener("click", ajoutplayer);
 
 
 function ajoutplayer(e) {
-    e.preventDefault();
-    
-    // ajout de joueur
-    const name = document.getElementById("name").value;
-    const image = document.getElementById("image").value;
-    const flag = document.getElementById("flag").value;
-    const position = document.getElementById("position").value;
-    console.log(image);
-    
-    const stats = {
-        pace: document.getElementById("stats1Input").value,
-        shooting: document.getElementById("stats2Input").value,
-        passing: document.getElementById("stats3Input").value,
-        dribbling: document.getElementById("stats4Input").value,
-        defending: document.getElementById("stats5Input").value,
-        physical: document.getElementById("stats6Input").value,
-    };
+  e.preventDefault();
 
-    //player object
-    const player = {
-        id: players.length + 1,
-        name,
-        photo: image,
-        flag: flag,
-        logo: `/assets/logos/default-logo.png`,
-        position: position,
-        pace: stats.pace,
-        shooting: stats.shooting,
-        passing: stats.passing,
-        dribbling: stats.dribbling,
-        defending: stats.defending,
-        physical: stats.physical,
-        ...(position === "GK" && {
-            diving: stats.pace,
-            handling: stats.shooting,
-            kicking: stats.passing,
-            reflexes: stats.dribbling,
-            speed: stats.defending,
-            positioning: stats.physical,
-        }),
-    };
-    if(validationForm (e)){
-      players.push(player);
-      localStorage.setItem("players", JSON.stringify(players));
-      showAllPlayers(players);
-      document.getElementById("playerForm").reset();
-      popup.classList.remove("show");
-    }
-    
+  // ajout de joueur
+  const name = document.getElementById("name").value;
+  const image = document.getElementById("image").value;
+  const flag = document.getElementById("flag").value;
+  const position = document.getElementById("position").value;
+  console.log(image);
 
-    
+  const stats = {
+    pace: document.getElementById("stats1Input").value,
+    shooting: document.getElementById("stats2Input").value,
+    passing: document.getElementById("stats3Input").value,
+    dribbling: document.getElementById("stats4Input").value,
+    defending: document.getElementById("stats5Input").value,
+    physical: document.getElementById("stats6Input").value,
+  };
+
+  //player object
+  const player = {
+    id: players.length + 1,
+    name,
+    photo: image,
+    flag: flag,
+    logo: `/assets/logos/default-logo.png`,
+    position: position,
+    pace: stats.pace,
+    shooting: stats.shooting,
+    passing: stats.passing,
+    dribbling: stats.dribbling,
+    defending: stats.defending,
+    physical: stats.physical,
+    ...(position === "GK" && {
+      diving: stats.pace,
+      handling: stats.shooting,
+      kicking: stats.passing,
+      reflexes: stats.dribbling,
+      speed: stats.defending,
+      positioning: stats.physical,
+    }),
+  };
+  if (validationForm(e)) {
+    players.push(player);
+    localStorage.setItem("players", JSON.stringify(players));
+    showAllPlayers(players);
+    document.getElementById("playerForm").reset();
+    popup.classList.remove("show");
+  }
 
 
-   
+
+
+
+
 
 }
 
 // Function to show the popup for updating a player
-window.showUpdateForm = function(playerIndex) {
-  document.querySelector('#updatePlayer').style.display='inline-block';
+window.showUpdateForm = function (playerIndex) {
+  document.querySelector('#updatePlayer').style.display = 'inline-block';
   isEditMode = true;
   index = playerIndex;
   const player = players[playerIndex];
   console.log(player);
-  console.log( document.getElementById('flag'))
+  console.log(document.getElementById('flag'))
   document.getElementById('name').value = player.name;
   document.getElementById('position').value = player.position;
   console.log(document.getElementById('position'));
@@ -215,119 +215,135 @@ window.showUpdateForm = function(playerIndex) {
   document.getElementById('stats6Input').value = player.physical || '';
 
   popup.classList.add('show');
-  
+
 };
 
 
-document.getElementById('updatePlayer').addEventListener('click', function(event) {
-    event.preventDefault();
+document.getElementById('updatePlayer').addEventListener('click', function (event) {
+  event.preventDefault();
 
-    const playerData = {
-        name: document.getElementById('name').value,
-        rating: document.getElementById('rating').value,
-        flag: document.getElementById('flag').value,
-        position: document.getElementById('position').value,
-        // logo: document.getElementById('logo').value,
-        photo: document.getElementById("image").value,
-        pace: document.getElementById('stats1Input').value,
-        shooting: document.getElementById('stats2Input').value,
-        passing: document.getElementById('stats3Input').value,
-        dribbling: document.getElementById('stats4Input').value,
-        defending: document.getElementById('stats5Input').value,
-        physical: document.getElementById('stats6Input').value,
-        nationality: document.getElementById('nationality').value,
+  const playerData = {
+    name: document.getElementById('name').value,
+    rating: document.getElementById('rating').value,
+    flag: document.getElementById('flag').value,
+    position: document.getElementById('position').value,
+    // logo: document.getElementById('logo').value,
+    photo: document.getElementById("image").value,
+    pace: document.getElementById('stats1Input').value,
+    shooting: document.getElementById('stats2Input').value,
+    passing: document.getElementById('stats3Input').value,
+    dribbling: document.getElementById('stats4Input').value,
+    defending: document.getElementById('stats5Input').value,
+    physical: document.getElementById('stats6Input').value,
+    nationality: document.getElementById('nationality').value,
 
-    };
-    
-    players[index] = playerData;
+  };
 
-    localStorage.setItem('players', JSON.stringify(players));
+  players[index] = playerData;
 
-    showAllPlayers();
-    
-    popup.classList.remove("show");
-   
+  localStorage.setItem('players', JSON.stringify(players));
+
+  showAllPlayers();
+
+  popup.classList.remove("show");
+
 });
 
 
 
 
-function videInput(){
+function videInput() {
   const name = document.getElementById("name");
   const nationality = document.getElementById("nationality");
   const position = document.getElementById("position");
   const rating = document.getElementById('rating');
 
   const stats = [
-      document.getElementById("stats1Input"),
-      document.getElementById("stats2Input"),
-      document.getElementById("stats3Input"),
-      document.getElementById("stats4Input"),
-      document.getElementById("stats5Input"),
-      document.getElementById("stats6Input"),
+    document.getElementById("stats1Input"),
+    document.getElementById("stats2Input"),
+    document.getElementById("stats3Input"),
+    document.getElementById("stats4Input"),
+    document.getElementById("stats5Input"),
+    document.getElementById("stats6Input"),
   ];
 
   name.value = "";
   flag.value = "";
-  position.value ="";
+  position.value = "";
   rating.value = "";
   stats.forEach(element => {
-    element.value ="";
+    element.value = "";
   });
 
- }
+}
 
 
- function validationForm (e) {
+function validationForm(e) {
   e.preventDefault();
-  document.querySelectorAll('.error').forEach((erreur)=>{
-   erreur.style.display='block';
+  document.querySelectorAll('.error').forEach((erreur) => {
+    erreur.style.display = 'block';
   })
-   let valide= true;
-  // Regex patterns
+  let valide = true;
   const nameRegex = /^[a-zA-Z\s]{3,}$/; // Minimum 3 caractères alphabétiques
   const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[a-z]{2,6}(\/[\w\-_.]*)*\/?$/i;
 
-  // Inputs
   const name = document.getElementById('name');
   const image = document.getElementById('image');
   const flag = document.getElementById('flag');
   const position = document.getElementById('position');
 
-  // Errors
+
   const nameError = document.getElementById('nameError');
   const imageError = document.getElementById('imageError');
   const flagError = document.getElementById('flagError');
-  const positionError = document.getElementById('positionError');
+  const statsError = document.getElementById('statsError');
 
-  // Validate Name
   if (!nameRegex.test(name.value)) {
     nameError.textContent = 'Le nom doit contenir au moins 3 lettres.';
-    valide=false;
+    valide = false;
   } else {
     nameError.textContent = '';
-    valide =true;
+    valide = true;
   }
 
-  // Validate Image URL 1
   if (!urlRegex.test(image.value)) {
     imageError.textContent = "L'URL de l'image est invalide.";
-    valide=false;
+    valide = false;
   } else {
     imageError.textContent = '';
-    valide =true;
+    valide = true;
   }
 
-  // Validate Image URL 2
   if (!urlRegex.test(flag.value)) {
     flagError.textContent = "L'URL de l'image est invalide.";
-    valide=false;
+    valide = false;
   } else {
     flagError.textContent = '';
-    valide =true;
+    valide = true;
   }
 
- 
+  const stats = [
+    document.getElementById("stats1Input"),
+    document.getElementById("stats2Input"),
+    document.getElementById("stats3Input"),
+    document.getElementById("stats4Input"),
+    document.getElementById("stats5Input"),
+    document.getElementById("stats6Input"),
+  ];
+
+  stats.forEach(element => {
+     if(!element.value.trim()){
+       statsError.textContent="Stats shouldn't be empty";
+       valide=false;
+     } else {
+      statsError.textContent = '';
+      valide = true;
+    }
+
+     
+  });
+  
+  
   return valide;
 
- }
+}

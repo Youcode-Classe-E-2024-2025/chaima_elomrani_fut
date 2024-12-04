@@ -20,14 +20,15 @@
 <body class="m-0 p-0 w-full">
   <!-- ************************navbar************************ -->
   <header class="w- h-20">
-    <nav class="">
+    <nav>
       <div class="" style="background-color: #000000;">
-        <div class="flex flex-row justify-between p-6">
-          <div class="flex flex-row gap-9">
+        <div class="flex flex-row gap-[20%] p-6">
+          <div class="flex flex-row gap-9 justify-between w-[40%]">
             <img src="/assets/images/logo.png" alt="logo" class="h-[70px] -mt-5">
             <a href="/index.html" class=" text-white cursor-pointer">Home</a>
           </div>
-          <a href="/assets/page.html/players.html" class="cursor-pointer">Players</a>
+           
+          <a href="/assets/page.html/players.html" class=" cursor-pointer">Players</a>
         </div>
         
       </div>
@@ -62,7 +63,7 @@
     <div id="popup" class="popup">
       <div class="popup-content">
         <!-- Card Section -->
-        <div id="container" class="flex-1 flex justify-center items-center">
+         <div id="container" class="flex-1 flex justify-center items-center">
           <div id="card-photo" class="relative">
             <img src="/assets/images/card.png" alt="Player">
 
@@ -122,7 +123,7 @@
             </div>
           </div>
 
-     </div>
+     </div> 
 
 
      
@@ -144,10 +145,7 @@
                 
               </div>
               <span class="error" id="imageError"></span>
-              <!-- <div class="form-group">
-            <label for="photo">Photo</label>
-            <input type="text" id="photo" placeholder="Photo URL">
-          </div> -->
+             
 
               <div class="form-group">
                 <label for="flag">
@@ -190,6 +188,7 @@
                     <label for="stats1Input">PAC</label>
                     <input id="stats1Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
                   </div>
+                 
                   <div class="flex gap-2">
                     <label for="stats2Input">SHO</label>
                     <input id="stats2Input" class="w-12 text-center rounded-md" type="number" min="1" max="100">
@@ -215,6 +214,7 @@
                   </div>
                 </div>
               </div>
+              <span id="statsError" class="error"></span>
 
 
 
