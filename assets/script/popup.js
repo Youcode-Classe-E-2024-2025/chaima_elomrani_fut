@@ -495,7 +495,7 @@ CMbtn1.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(CMbtn1.id) 
 
-  const finded = players.filter((plr) => plr.position === "CM");
+  const finded = players.filter((plr) => plr.position === "CM1");
   console.log("hello"+finded);
 
   
@@ -582,7 +582,7 @@ CMbtn2.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(CMbtn2.id) 
 
-  const finded = players.filter((plr) => plr.position === "CM");
+  const finded = players.filter((plr) => plr.position === "CM2");
   console.log("hello"+finded);
 
   
@@ -673,7 +673,7 @@ CMbtn3.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(CMbtn3.id) 
 
-  const finded = players.filter((plr) => plr.position === "CM");
+  const finded = players.filter((plr) => plr.position === "CM3");
   console.log("hello"+finded);
 
   
@@ -865,7 +865,7 @@ CBcard1.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(CBcard1.id) 
 
-  const finded = players.filter((plr) => plr.position === "CB");
+  const finded = players.filter((plr) => plr.position === "CB1");
   console.log("hello"+finded);
 
   
@@ -961,7 +961,7 @@ CBcard2.addEventListener("click", (e) => {
   e.stopPropagation();
   console.log(CBcard2.id) 
 
-  const finded = players.filter((plr) => plr.position === "CB");
+  const finded = players.filter((plr) => plr.position === "CB2");
   console.log("hello"+finded);
 
   
